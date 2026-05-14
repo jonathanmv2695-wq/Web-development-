@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" role="img" aria-label="HWY 99 Cannabis Co. logo">
+  <defs>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7BB661"/>
+      <stop offset="55%" stop-color="#4F8F3A"/>
+      <stop offset="100%" stop-color="#2F5F22"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ece6d6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Highway shield -->
+  <path d="M 120 12
+           L 36 32
+           L 36 142
+           Q 36 200 120 248
+           Q 204 200 204 142
+           L 204 32 Z"
+        fill="url(#shieldGrad)" stroke="#0d0d0d" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- Cannabis leaf (7 stylized leaflets) -->
+  <g transform="translate(120 138)" fill="url(#leafGrad)" stroke="#1f3d18" stroke-width="1">
+    <!-- center top leaflet -->
+    <path d="M 0 -90 C 6 -55 8 -25 4 5 C 2 18 -2 18 -4 5 C -8 -25 -6 -55 0 -90 Z"/>
+    <!-- upper right -->
+    <path d="M 4 -8 C 36 -38 56 -52 72 -56 C 60 -32 42 -10 14 8 Z" transform="rotate(20)"/>
+    <!-- upper left -->
+    <path d="M -4 -8 C -36 -38 -56 -52 -72 -56 C -60 -32 -42 -10 -14 8 Z" transform="rotate(-20)"/>
+    <!-- mid right -->
+    <path d="M 4 0 C 38 -10 64 -8 84 4 C 64 18 38 22 12 14 Z"/>
+    <!-- mid left -->
+    <path d="M -4 0 C -38 -10 -64 -8 -84 4 C -64 18 -38 22 -12 14 Z"/>
+    <!-- lower right -->
+    <path d="M 6 8 C 30 22 52 38 60 60 C 38 56 18 42 8 22 Z"/>
+    <!-- lower left -->
+    <path d="M -6 8 C -30 22 -52 38 -60 60 C -38 56 -18 42 -8 22 Z"/>
+    <!-- stem -->
+    <path d="M -2 18 L -3 95 L 3 95 L 2 18 Z" fill="#3a6a26"/>
+  </g>
+
+  <!-- HWY text -->
+  <text x="120" y="68" text-anchor="middle"
+        font-family="'Arial Black', 'Helvetica Neue', sans-serif"
+        font-size="40" font-weight="900" fill="#0d0d0d" letter-spacing="2">HWY</text>
+
+  <!-- Divider bar -->
+  <rect x="46" y="80" width="148" height="6" fill="#0d0d0d"/>
+
+  <!-- 99 -->
+  <text x="120" y="158" text-anchor="middle"
+        font-family="'Arial Black', 'Helvetica Neue', sans-serif"
+        font-size="78" font-weight="900" fill="#0d0d0d">99</text>
+
+  <!-- CANNABIS -->
+  <text x="120" y="218" text-anchor="middle"
+        font-family="'Arial Black', 'Helvetica Neue', sans-serif"
+        font-size="26" font-weight="900" fill="#0d0d0d" letter-spacing="3">CANNABIS</text>
+</svg>
