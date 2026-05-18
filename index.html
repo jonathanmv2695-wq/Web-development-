@@ -4,32 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1f2a1a" />
-  <meta name="description" content="HWY 99 Cannabis Co. — craft cannabis, premium flower, edibles, concentrates and gear. Visit our dispensary on Highway 99." />
-  <title>HWY 99 Cannabis Co. — Craft Cannabis on the 99</title>
+  <meta name="description" content="HWY 99 Cannabis Co. — craft dispensary on Highway 99 in Eugene, Oregon. Top-shelf flower, pre-rolls, edibles, concentrates and gear. Daily deals all week." />
+  <title>HWY 99 Cannabis Co. — Craft Dispensary · Eugene, Oregon</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Earthy background scene + blurred color orbs (depth) -->
+  <!-- Earthy background scene: photographic foliage, color orbs, grain -->
   <div class="scene" aria-hidden="true">
+    <div class="scene__photo scene__photo--top"></div>
+    <div class="scene__photo scene__photo--mid"></div>
+    <div class="scene__photo scene__photo--bot"></div>
+    <div class="scene__veil"></div>
     <div class="scene__horizon"></div>
-    <div class="scene__hills"></div>
     <div class="scene__grain"></div>
     <span class="orb orb--sage"></span>
     <span class="orb orb--terracotta"></span>
     <span class="orb orb--gold"></span>
     <span class="orb orb--moss"></span>
+    <!-- Decorative SVG leaves drifting in the background -->
+    <svg class="leaf leaf--a" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
+    <svg class="leaf leaf--b" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
+    <svg class="leaf leaf--c" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
   </div>
+
+  <!-- Reusable cannabis leaf symbol -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="cannabisLeaf" viewBox="0 0 100 140">
+        <g fill="currentColor" stroke="rgba(15,25,12,0.4)" stroke-width="0.6">
+          <path d="M50 6 C53 30 54 50 51 70 C50 78 48 78 47 70 C44 50 45 30 50 6 Z"/>
+          <path d="M52 22 C70 8 84 4 96 6 C90 24 76 38 56 44 Z"/>
+          <path d="M48 22 C30 8 16 4 4 6 C10 24 24 38 44 44 Z"/>
+          <path d="M54 50 C74 44 90 46 98 54 C88 64 70 68 56 64 Z"/>
+          <path d="M46 50 C26 44 10 46 2 54 C12 64 30 68 44 64 Z"/>
+          <path d="M54 70 C68 80 78 92 80 106 C66 102 54 92 50 78 Z"/>
+          <path d="M46 70 C32 80 22 92 20 106 C34 102 46 92 50 78 Z"/>
+          <path d="M49 80 L48 134 L52 134 L51 80 Z" fill="rgba(58,106,38,0.9)"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
 
   <!-- Age gate -->
   <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
     <div class="age-gate__panel glass">
       <img src="assets/logo.svg" alt="" class="age-gate__logo" />
       <h2 id="ageTitle" class="age-gate__title">Are you 21 or older?</h2>
-      <p class="age-gate__copy">You must be of legal age to enter HWY 99 Cannabis Co. By entering, you confirm you meet the legal age requirement in your jurisdiction.</p>
+      <p class="age-gate__copy">You must be of legal age to enter HWY 99 Cannabis Co. By entering you confirm you meet the legal age requirement in your jurisdiction.</p>
       <div class="age-gate__actions">
         <button type="button" class="btn btn--primary" data-age="yes">Yes, I'm 21+</button>
         <button type="button" class="btn btn--ghost" data-age="no">No, take me back</button>
@@ -44,10 +70,11 @@
       <img src="assets/logo.svg" alt="" class="nav__logo" />
       <span class="nav__wordmark">
         <span class="nav__wordmark-top">HWY 99</span>
-        <span class="nav__wordmark-bot">Cannabis Co.</span>
+        <span class="nav__wordmark-bot">Cannabis Co. · Eugene</span>
       </span>
     </a>
     <nav class="nav__links" aria-label="Primary">
+      <a href="#deals">Daily Deals</a>
       <a href="#strains">Strains</a>
       <a href="#shop">Shop</a>
       <a href="#story">Story</a>
@@ -64,19 +91,19 @@
     <section class="hero">
       <div class="hero__inner">
         <div class="hero__text glass glass--soft">
-          <span class="eyebrow">Mile Marker 99 · Craft Cannabis</span>
+          <span class="eyebrow">Eugene, Oregon · Mile 99</span>
           <h1 class="hero__title">
-            Fueling the<br/>journey since<br/><em>mile 99.</em>
+            Craft cannabis,<br/>off the <em>99.</em>
           </h1>
-          <p class="hero__sub">Small-batch flower, slow-cured edibles, and clean concentrates — sourced from growers who care about the soil, the strain, and the smoke.</p>
+          <p class="hero__sub">A neighborhood dispensary on Highway 99 in Eugene — small-batch flower, slow-cured edibles, and clean concentrates from growers who care about the soil, the strain, and the smoke.</p>
           <div class="hero__actions">
-            <a href="#shop" class="btn btn--primary">Browse the menu</a>
+            <a href="#deals" class="btn btn--primary">See today's deal</a>
             <a href="#visit" class="btn btn--ghost">Find the shop</a>
           </div>
           <ul class="hero__chips">
             <li>Lab-tested</li>
             <li>Locally sourced</li>
-            <li>Open daily 9–10</li>
+            <li>Open 7 days</li>
           </ul>
         </div>
         <div class="hero__sign">
@@ -88,19 +115,76 @@
       </div>
     </section>
 
+    <!-- Daily Deals -->
+    <section id="deals" class="section section--deals">
+      <header class="section__head">
+        <span class="eyebrow">Every day a different reason</span>
+        <h2>Daily Deals.</h2>
+        <p class="section__lede">A rotating week of savings — 10% off something different every day of the week. Stop in, stack with our loyalty program, and roll out lighter.</p>
+        <p class="deals__today" id="dealsToday" aria-live="polite"></p>
+      </header>
+
+      <ul class="deals" id="dealsList">
+        <li class="deal glass" data-day="1">
+          <div class="deal__day"><span>Mon</span><small>Monday</small></div>
+          <h3 class="deal__name">Middle Shelf Flower</h3>
+          <p class="deal__copy">Quietly excellent buds — your daily-driver eighths and quarters.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+        <li class="deal glass" data-day="2">
+          <div class="deal__day"><span>Tue</span><small>Tuesday</small></div>
+          <h3 class="deal__name">Top Shelf Flower</h3>
+          <p class="deal__copy">Premium picks from our most-loved farms — the connoisseur jars.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+        <li class="deal glass" data-day="3">
+          <div class="deal__day"><span>Wed</span><small>Wednesday</small></div>
+          <h3 class="deal__name">Pre-Rolled Joints</h3>
+          <p class="deal__copy">Singles, multi-packs, and house-rolled infused — ready to spark.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+        <li class="deal glass" data-day="4">
+          <div class="deal__day"><span>Thu</span><small>Thursday</small></div>
+          <h3 class="deal__name">Accessories & Edibles</h3>
+          <p class="deal__copy">Gummies, chocolate, drinks — plus pipes, grinders, papers and gear.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+        <li class="deal glass" data-day="5">
+          <div class="deal__day"><span>Fri</span><small>Friday</small></div>
+          <h3 class="deal__name">Bottom Shelf Flower</h3>
+          <p class="deal__copy">Honest, value-priced flower for the weekend stash.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+        <li class="deal glass deal--featured" data-day="6">
+          <div class="deal__day"><span>Sat</span><small>Saturday</small></div>
+          <h3 class="deal__name">All Products</h3>
+          <p class="deal__copy">Storewide 10% off — the biggest day of the week. Stock up.</p>
+          <span class="deal__badge deal__badge--hot">10% off everything</span>
+        </li>
+        <li class="deal glass" data-day="0">
+          <div class="deal__day"><span>Sun</span><small>Sunday</small></div>
+          <h3 class="deal__name">Concentrates, Extracts & Edibles</h3>
+          <p class="deal__copy">Live rosin, badder, hash, and the full edibles wall — slow Sunday vibes.</p>
+          <span class="deal__badge">10% off</span>
+        </li>
+      </ul>
+
+      <p class="deals__legal">Discounts apply to regular shelf price and cannot be combined with other offers. Must be 21+ with valid ID. While supplies last.</p>
+    </section>
+
     <!-- Featured strains -->
     <section id="strains" class="section">
       <header class="section__head">
         <span class="eyebrow">This week's drop</span>
-        <h2>Featured strains</h2>
-        <p class="section__lede">Hand-picked harvests from our roster of family-run farms. Rotating weekly — when it's gone, it's gone.</p>
+        <h2>Featured strains.</h2>
+        <p class="section__lede">Hand-picked harvests from a small circle of family-run Oregon farms. Rotating weekly — when it's gone, it's gone.</p>
       </header>
 
       <div class="strains">
         <article class="strain glass">
           <div class="strain__tag strain__tag--sativa">Sativa</div>
-          <h3 class="strain__name">Pacific Sun</h3>
-          <p class="strain__notes">Citrus peel · pine · a long, bright lift for road-trip mornings.</p>
+          <h3 class="strain__name">Willamette Sun</h3>
+          <p class="strain__notes">Citrus peel · pine · a long, bright lift for valley mornings.</p>
           <dl class="strain__stats">
             <div><dt>THC</dt><dd>24.6%</dd></div>
             <div><dt>CBD</dt><dd>0.3%</dd></div>
@@ -112,7 +196,7 @@
         <article class="strain glass strain--featured">
           <div class="strain__tag strain__tag--hybrid">Hybrid</div>
           <h3 class="strain__name">Highway Haze</h3>
-          <p class="strain__notes">Mango · diesel · a balanced cruise — house favorite, always on.</p>
+          <p class="strain__notes">Mango · diesel · a balanced cruise — the house favorite, always on.</p>
           <dl class="strain__stats">
             <div><dt>THC</dt><dd>27.2%</dd></div>
             <div><dt>CBD</dt><dd>0.5%</dd></div>
@@ -124,7 +208,7 @@
         <article class="strain glass">
           <div class="strain__tag strain__tag--indica">Indica</div>
           <h3 class="strain__name">Mile 99 Kush</h3>
-          <p class="strain__notes">Cocoa · earth · the soft landing at the end of the drive.</p>
+          <p class="strain__notes">Cocoa · forest floor · the soft landing at the end of the drive.</p>
           <dl class="strain__stats">
             <div><dt>THC</dt><dd>25.8%</dd></div>
             <div><dt>CBD</dt><dd>0.4%</dd></div>
@@ -179,9 +263,9 @@
     <section id="story" class="section section--split">
       <div class="story glass">
         <span class="eyebrow">Our story</span>
-        <h2>Born off Exit 99.</h2>
+        <h2>Born on the 99, raised in Eugene.</h2>
         <p>HWY 99 started with a pickup truck, a notebook of farm visits, and a stubborn belief that a dispensary should feel like a good roadside stop — honest, unhurried, a little weird, and worth pulling over for.</p>
-        <p>Today we partner with a small circle of growers up and down the corridor. We know who pulled the trim shears, what soil the plant came up in, and how the cure went. That's the only way we put it on the shelf.</p>
+        <p>Today we partner with a small circle of Willamette Valley growers up and down the corridor. We know who pulled the trim shears, what soil the plant came up in, and how the cure went. That's the only way it gets on the shelf.</p>
         <a href="#visit" class="btn btn--ghost">Come say hi</a>
       </div>
       <aside class="pillars">
@@ -195,7 +279,7 @@
         </div>
         <div class="pillar glass">
           <h4>Lab-verified</h4>
-          <p>Every batch tested for potency, pesticides, and microbials.</p>
+          <p>Every batch tested for potency, pesticides &amp; microbials.</p>
         </div>
         <div class="pillar glass">
           <h4>Budtender-led</h4>
@@ -209,6 +293,7 @@
       <header class="section__head">
         <span class="eyebrow">Pull off the highway</span>
         <h2>Visit the shop.</h2>
+        <p class="section__lede">Just north of downtown Eugene on State Highway 99 — easy parking, friendly faces, and a fresh menu every week.</p>
       </header>
 
       <div class="visit">
@@ -219,34 +304,27 @@
             <li><span>Fri — Sat</span><span>9:00a — 10:00p</span></li>
             <li><span>Sunday</span><span>10:00a — 8:00p</span></li>
           </ul>
+          <p class="visit__note">Hours may vary on holidays — call ahead to confirm.</p>
         </div>
 
         <div class="visit__card glass visit__card--wide">
           <h3>Find us</h3>
-          <p class="visit__addr">9920 Highway 99 N<br/>Mile Marker 99, OR 97000</p>
+          <p class="visit__addr">1083 State Hwy 99 N, Suite B<br/>Eugene, OR 97402</p>
           <p class="visit__phone">(541) 555&#8209;0199</p>
-          <div class="visit__map" role="img" aria-label="Stylized map showing dispensary location">
-            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
-                  <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
-                </linearGradient>
-              </defs>
-              <rect width="320" height="180" fill="url(#mapGrad)"/>
-              <path d="M 0 140 C 80 120 110 80 180 70 S 280 30 320 20" stroke="rgba(255,255,255,0.45)" stroke-width="3" fill="none" stroke-dasharray="6 6"/>
-              <path d="M 0 60 Q 90 110 180 100 T 320 130" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
-              <circle cx="180" cy="70" r="9" fill="#c87f5a" stroke="white" stroke-width="2"/>
-              <circle cx="180" cy="70" r="22" fill="none" stroke="rgba(200,127,90,0.5)" stroke-width="1"/>
-              <text x="200" y="62" font-family="Inter, sans-serif" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="600">HWY 99</text>
-            </svg>
+          <div class="visit__map">
+            <iframe
+              title="Map to HWY 99 Cannabis Co. — 1083 State Hwy 99 N B, Eugene, OR 97402"
+              src="https://maps.google.com/maps?q=1083%20State%20Hwy%2099%20N%20B%2C%20Eugene%2C%20OR%2097402&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
           </div>
-          <a href="#" class="btn btn--primary">Get directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1083+State+Hwy+99+N+B%2C+Eugene%2C+OR+97402" target="_blank" rel="noopener" class="btn btn--primary">Get directions</a>
         </div>
 
         <div class="visit__card glass">
-          <h3>Curbside &amp; delivery</h3>
-          <p>Order ahead online and we'll have it ready at the window in 20 minutes. Local delivery within 15 miles.</p>
+          <h3>Curbside &amp; pre-order</h3>
+          <p>Order ahead online and we'll have it ready at the window in 20 minutes. Local pickup, easy in-and-out off the 99.</p>
           <a href="#shop" class="btn btn--ghost">Order ahead</a>
         </div>
       </div>
@@ -257,12 +335,12 @@
     <div class="footer__row">
       <div class="footer__brand">
         <img src="assets/logo.svg" alt="" class="footer__logo"/>
-        <p>HWY 99 Cannabis Co.<br/><span>Mile Marker 99 · Est. 2019</span></p>
+        <p>HWY 99 Cannabis Co.<br/><span>1083 State Hwy 99 N B · Eugene, OR</span></p>
       </div>
       <div class="footer__cols">
         <div>
           <h5>Shop</h5>
-          <a href="#">Flower</a><a href="#">Pre-Rolls</a><a href="#">Edibles</a><a href="#">Concentrates</a>
+          <a href="#deals">Daily Deals</a><a href="#shop">Flower</a><a href="#shop">Pre-Rolls</a><a href="#shop">Edibles</a><a href="#shop">Concentrates</a>
         </div>
         <div>
           <h5>About</h5>
@@ -270,13 +348,13 @@
         </div>
         <div>
           <h5>Visit</h5>
-          <a href="#visit">Hours</a><a href="#visit">Directions</a><a href="#">Delivery</a><a href="#">Contact</a>
+          <a href="#visit">Hours</a><a href="#visit">Directions</a><a href="#visit">Contact</a><a href="#visit">Curbside</a>
         </div>
       </div>
     </div>
     <div class="footer__legal">
-      <p>For use only by adults 21 and older. Keep out of reach of children. Do not operate a vehicle or machinery under the influence. This product has intoxicating effects and may be habit forming. License #C99-0000099-LIC.</p>
-      <p>&copy; <span id="year">2026</span> HWY 99 Cannabis Co. All rights reserved.</p>
+      <p>For use only by adults 21 and older. Keep out of reach of children. Do not operate a vehicle or machinery under the influence. This product has intoxicating effects and may be habit forming. Marijuana can impair concentration, coordination and judgment.</p>
+      <p>&copy; <span id="year">2026</span> HWY 99 Cannabis Co. · 1083 State Hwy 99 N B, Eugene, OR 97402. All rights reserved.</p>
     </div>
   </footer>
 

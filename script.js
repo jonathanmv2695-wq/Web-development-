@@ -60,9 +60,24 @@
     });
   }
 
+  /* ---------- Daily deal of the day ---------- */
+  const dealsList = document.getElementById('dealsList');
+  const dealsToday = document.getElementById('dealsToday');
+  if (dealsList) {
+    const today = new Date().getDay(); // 0=Sun ... 6=Sat
+    const match = dealsList.querySelector(`.deal[data-day="${today}"]`);
+    if (match) {
+      match.setAttribute('data-today', 'true');
+      if (dealsToday) {
+        const name = match.querySelector('.deal__name')?.textContent?.trim();
+        if (name) dealsToday.textContent = `Today → ${name} · 10% off`;
+      }
+    }
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const targets = document.querySelectorAll(
-    '.hero__text, .hero__sign-glass, .strain, .cat, .story, .pillar, .visit__card, .section__head'
+    '.hero__text, .hero__sign-glass, .strain, .cat, .deal, .story, .pillar, .visit__card, .section__head'
   );
   targets.forEach((el) => el.classList.add('reveal'));
 
