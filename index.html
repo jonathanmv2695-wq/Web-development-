@@ -14,6 +14,58 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- HWY 99 logo symbol — defined once, <use>'d everywhere. The
+       cannabis leaf is a real photograph clipped to the 7-leaflet
+       silhouette so it reads like the original sign. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="hwy99LeafShape" clipPathUnits="userSpaceOnUse">
+        <g transform="translate(120 138)">
+          <path d="M 0 -92 C 6 -56 8 -26 4 6 C 2 19 -2 19 -4 6 C -8 -26 -6 -56 0 -92 Z"/>
+          <path d="M 4 -8 C 36 -38 56 -52 72 -56 C 60 -32 42 -10 14 8 Z" transform="rotate(20)"/>
+          <path d="M -4 -8 C -36 -38 -56 -52 -72 -56 C -60 -32 -42 -10 -14 8 Z" transform="rotate(-20)"/>
+          <path d="M 4 0 C 38 -10 64 -8 84 4 C 64 18 38 22 12 14 Z"/>
+          <path d="M -4 0 C -38 -10 -64 -8 -84 4 C -64 18 -38 22 -12 14 Z"/>
+          <path d="M 6 8 C 30 22 52 38 60 60 C 38 56 18 42 8 22 Z"/>
+          <path d="M -6 8 C -30 22 -52 38 -60 60 C -38 56 -18 42 -8 22 Z"/>
+        </g>
+      </clipPath>
+      <linearGradient id="hwy99ShieldGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#f3ecd9"/>
+      </linearGradient>
+    </defs>
+    <symbol id="hwy99Logo" viewBox="0 0 240 260">
+      <!-- Highway shield -->
+      <path d="M 120 12 L 36 32 L 36 142 Q 36 200 120 248 Q 204 200 204 142 L 204 32 Z"
+            fill="url(#hwy99ShieldGrad)" stroke="#0d0d0d" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Photographic cannabis leaf, clipped to leaflet silhouette -->
+      <g clip-path="url(#hwy99LeafShape)">
+        <rect x="0" y="0" width="240" height="260" fill="#3a6a26"/>
+        <image href="https://images.unsplash.com/photo-1536819114556-1e10f967fb61?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+               x="20" y="30" width="200" height="220"
+               preserveAspectRatio="xMidYMid slice"/>
+      </g>
+      <!-- Stem (drawn after clip so it extends below the leaflets) -->
+      <path d="M 117 156 L 116 235 L 124 235 L 123 156 Z" fill="#3a6a26" stroke="#1f3d18" stroke-width="0.8"/>
+      <!-- HWY -->
+      <text x="120" y="68" text-anchor="middle"
+            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
+            font-size="40" font-weight="900" fill="#0d0d0d" letter-spacing="2">HWY</text>
+      <!-- Divider -->
+      <rect x="46" y="80" width="148" height="6" fill="#0d0d0d"/>
+      <!-- 99 (sits on top of the leaf — like the original) -->
+      <text x="120" y="160" text-anchor="middle"
+            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
+            font-size="82" font-weight="900" fill="#0d0d0d"
+            stroke="#ffffff" stroke-width="2" paint-order="stroke fill">99</text>
+      <!-- CANNABIS -->
+      <text x="120" y="220" text-anchor="middle"
+            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
+            font-size="26" font-weight="900" fill="#0d0d0d" letter-spacing="3">CANNABIS</text>
+    </symbol>
+  </svg>
+
   <!-- Earthy background scene: layered photographic cannabis plants -->
   <div class="scene" aria-hidden="true">
     <div class="scene__photo scene__photo--top"></div>
@@ -32,7 +84,7 @@
   <!-- Age gate -->
   <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
     <div class="age-gate__panel glass">
-      <img src="assets/logo.svg" alt="" class="age-gate__logo" />
+      <svg class="age-gate__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
       <h2 id="ageTitle" class="age-gate__title">Are you 21 or older?</h2>
       <p class="age-gate__copy">You must be of legal age to enter HWY 99 Cannabis Co. By entering you confirm you meet the legal age requirement in your jurisdiction.</p>
       <div class="age-gate__actions">
@@ -46,7 +98,7 @@
   <!-- Sticky glass navigation -->
   <header class="nav glass">
     <a class="nav__brand" href="#top" aria-label="HWY 99 Cannabis Co. — home">
-      <img src="assets/logo.svg" alt="" class="nav__logo" />
+      <svg class="nav__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
       <span class="nav__wordmark">
         <span class="nav__wordmark-top">HWY 99</span>
         <span class="nav__wordmark-bot">Cannabis Co. · Eugene</span>
@@ -88,7 +140,7 @@
         </div>
         <div class="hero__sign">
           <div class="hero__sign-glass glass">
-            <img src="assets/logo.svg" alt="HWY 99 Cannabis Co. logo" class="hero__sign-logo" />
+            <svg class="hero__sign-logo" viewBox="0 0 240 260" role="img" aria-label="HWY 99 Cannabis Co. logo" focusable="false"><use href="#hwy99Logo"/></svg>
           </div>
           <div class="hero__post" aria-hidden="true"></div>
         </div>
@@ -368,7 +420,7 @@
   <footer class="footer glass glass--dark">
     <div class="footer__row">
       <div class="footer__brand">
-        <img src="assets/logo.svg" alt="" class="footer__logo"/>
+        <svg class="footer__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
         <p>HWY 99 Cannabis Co.<br/><span>1083 State Hwy 99 N B · Eugene, OR</span></p>
       </div>
       <div class="footer__cols">
