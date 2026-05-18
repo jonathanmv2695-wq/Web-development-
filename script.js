@@ -75,9 +75,75 @@
     }
   }
 
+  /* ---------- Reviews carousel ---------- */
+  const carousel = document.getElementById('reviews-carousel');
+  if (carousel) {
+    const track = carousel.querySelector('#reviewsTrack');
+    const slides = Array.from(track.querySelectorAll('.review'));
+    const dotsWrap = carousel.querySelector('#reviewsDots');
+    const prevBtn = carousel.querySelector('.reviews__arrow--prev');
+    const nextBtn = carousel.querySelector('.reviews__arrow--next');
+    const ADVANCE_MS = 6000;
+    let index = 0;
+    let timer = null;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', `Show review ${i + 1}`);
+      btn.addEventListener('click', () => go(i, true));
+      li.appendChild(btn);
+      dotsWrap.appendChild(li);
+    });
+    const dots = Array.from(dotsWrap.querySelectorAll('button'));
+
+    const go = (next, fromUser = false) => {
+      const n = (next + slides.length) % slides.length;
+      slides[index].classList.remove('is-active');
+      dots[index].removeAttribute('aria-current');
+      index = n;
+      slides[index].classList.add('is-active');
+      dots[index].setAttribute('aria-current', 'true');
+      if (fromUser) restart();
+    };
+
+    const tick  = () => go(index + 1);
+    const start = () => { timer = setInterval(tick, ADVANCE_MS); };
+    const stop  = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const restart = () => { stop(); start(); };
+
+    dots[0].setAttribute('aria-current', 'true');
+    prevBtn.addEventListener('click', () => go(index - 1, true));
+    nextBtn.addEventListener('click', () => go(index + 1, true));
+
+    // Pause on hover / focus
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin',  stop);
+    carousel.addEventListener('focusout', start);
+
+    // Keyboard arrows when carousel is in viewport / focused
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(index - 1, true); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, true); }
+    });
+
+    // Only auto-advance while the section is on-screen (saves cycles)
+    if ('IntersectionObserver' in window) {
+      const vis = new IntersectionObserver((entries) => {
+        entries.forEach((e) => e.isIntersecting ? start() : stop());
+      }, { threshold: 0.25 });
+      vis.observe(carousel);
+    } else {
+      start();
+    }
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const targets = document.querySelectorAll(
-    '.hero__text, .hero__sign-glass, .strain, .cat, .deal, .story, .pillar, .visit__card, .section__head'
+    '.hero__text, .hero__sign-glass, .strain, .cat, .deal, .reviews__stage, .story, .pillar, .visit__card, .section__head'
   );
   targets.forEach((el) => el.classList.add('reveal'));
 

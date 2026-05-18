@@ -56,6 +56,7 @@
       <a href="#deals">Daily Deals</a>
       <a href="#strains">Strains</a>
       <a href="#shop">Shop</a>
+      <a href="#reviews">Reviews</a>
       <a href="#story">Story</a>
       <a href="#visit">Visit</a>
     </nav>
@@ -235,6 +236,60 @@
           <h3>Gear</h3>
           <p>Glass, grinders, papers</p>
         </a>
+      </div>
+    </section>
+
+    <!-- Reviews (auto-cycling) -->
+    <section id="reviews" class="section section--reviews">
+      <header class="section__head">
+        <span class="eyebrow">Loved on the 99</span>
+        <h2>Real reviews. Real Eugene customers.</h2>
+        <p class="section__lede">Quotes compiled from public reviews on Leafly, WheresWeed, and Trusted Bud.</p>
+      </header>
+
+      <div class="reviews" id="reviews-carousel">
+        <button class="reviews__arrow reviews__arrow--prev" type="button" aria-label="Previous review">‹</button>
+
+        <div class="reviews__stage glass">
+          <div class="reviews__quote" aria-hidden="true">&ldquo;</div>
+
+          <ol class="reviews__track" id="reviewsTrack">
+            <li class="review is-active" data-review="0">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">Some of the best prices for concentrates in <em>all of Eugene</em> &mdash; great staff, great selection.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://www.leafly.com/dispensary-info/hwy-99-canbnabis-co/reviews" target="_blank" rel="noopener">Leafly</a></p>
+            </li>
+            <li class="review" data-review="1">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">Best prices I have found in the <em>Eugene/Springfield</em> area. Always a good deal to be had.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://www.leafly.com/dispensary-info/hwy-99-canbnabis-co/reviews" target="_blank" rel="noopener">Leafly</a></p>
+            </li>
+            <li class="review" data-review="2">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">Staff is friendly, helpful, and patient &mdash; <em>regardless of the time of day</em>.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://www.leafly.com/dispensary-info/hwy-99-canbnabis-co/reviews" target="_blank" rel="noopener">Leafly</a></p>
+            </li>
+            <li class="review" data-review="3">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">Bud tenders are <em>very knowledgeable</em> when it comes to most items in the store.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://wheresweed.com/eugene/marijuana-dispensaries/hwy-99-cannabis-co" target="_blank" rel="noopener">WheresWeed</a></p>
+            </li>
+            <li class="review" data-review="4">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">Consistently around <em>20% less</em> than other shops. One of the cheapest in town for concentrates.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://trustedbud.com/biz/17640-hwy-99-cannabis-co-eugene-oregon" target="_blank" rel="noopener">Trusted Bud</a></p>
+            </li>
+            <li class="review" data-review="5">
+              <p class="review__stars" aria-label="5 out of 5 stars"><span>★★★★★</span></p>
+              <blockquote class="review__text">The staff is <em>super friendly and knowledgeable</em>. Great prices and a great selection of flower.</blockquote>
+              <p class="review__source">Verified review &middot; <a href="https://www.leafly.com/dispensary-info/hwy-99-canbnabis-co/reviews" target="_blank" rel="noopener">Leafly</a></p>
+            </li>
+          </ol>
+
+          <ul class="reviews__dots" id="reviewsDots" role="tablist" aria-label="Reviews"></ul>
+        </div>
+
+        <button class="reviews__arrow reviews__arrow--next" type="button" aria-label="Next review">›</button>
       </div>
     </section>
 

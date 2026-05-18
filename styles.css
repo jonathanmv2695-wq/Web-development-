@@ -760,6 +760,198 @@ em {
 .cat p { margin: 0; font-size: 0.92rem; color: var(--text-dim); }
 
 /* ============================================================
+   Reviews carousel — built to stand out
+   - Wider than the body grid, golden glow, large quote mark.
+   - One review visible at a time, cross-fades on auto-advance.
+   - Pause-on-hover, dots, prev/next arrows, keyboard arrows.
+   ============================================================ */
+.section--reviews {
+  position: relative;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+.section--reviews::before {
+  /* Warm golden halo so this section reads as "hero" social proof */
+  content: "";
+  position: absolute;
+  inset: 6% -5% auto -5%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+              rgba(217, 182, 122, 0.22) 0%,
+              rgba(123, 182, 97, 0.12) 35%,
+              transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+}
+.reviews {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  max-width: 980px;
+  margin: 0 auto;
+}
+.reviews__stage {
+  position: relative;
+  padding: clamp(2.25rem, 4vw, 3.5rem) clamp(1.75rem, 4vw, 3rem) clamp(2rem, 3vw, 2.75rem);
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(30, 38, 26, 0.5);
+  border-color: rgba(217, 182, 122, 0.45);
+  box-shadow: var(--glass-shadow),
+              0 0 0 1px rgba(217, 182, 122, 0.18),
+              0 24px 70px rgba(217, 182, 122, 0.15);
+}
+.reviews__quote {
+  position: absolute;
+  top: -0.45em;
+  left: 0.4rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(8rem, 16vw, 14rem);
+  line-height: 1;
+  color: rgba(217, 182, 122, 0.22);
+  pointer-events: none;
+  user-select: none;
+}
+.reviews__track {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-height: 220px;
+}
+.review {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 600ms ease, transform 600ms cubic-bezier(.2, .7, .2, 1);
+  pointer-events: none;
+}
+.review.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.review__stars {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-shadow: 0 2px 12px rgba(217, 182, 122, 0.45);
+}
+.review__stars span { display: inline-block; }
+.review__text {
+  margin: 0 auto 1.1rem;
+  max-width: 36ch;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+  line-height: 1.35;
+  color: var(--cream);
+  letter-spacing: 0.005em;
+}
+.review__text em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold);
+}
+.review__source {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.review__source a {
+  color: var(--leaf-bright);
+  border-bottom: 1px dashed rgba(123, 182, 97, 0.5);
+  padding-bottom: 1px;
+  transition: color var(--t), border-color var(--t);
+}
+.review__source a:hover { color: var(--cream); border-bottom-color: var(--cream); }
+
+.reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+.reviews__dots li { list-style: none; }
+.reviews__dots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(243, 237, 223, 0.25);
+  border: 1px solid rgba(243, 237, 223, 0.18);
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--t), transform var(--t), border-color var(--t), width var(--t);
+}
+.reviews__dots button:hover { background: rgba(243, 237, 223, 0.4); }
+.reviews__dots button[aria-current="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  width: 26px;
+  border-radius: 99px;
+  box-shadow: 0 0 12px rgba(217, 182, 122, 0.6);
+}
+
+.reviews__arrow {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(30, 38, 26, 0.6);
+  border: 1px solid rgba(243, 237, 223, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--cream);
+  cursor: pointer;
+  transition: background var(--t), border-color var(--t), transform var(--t);
+  flex-shrink: 0;
+}
+.reviews__arrow:hover {
+  background: rgba(217, 182, 122, 0.22);
+  border-color: rgba(217, 182, 122, 0.6);
+  transform: scale(1.05);
+}
+.reviews__arrow:active { transform: scale(0.97); }
+
+@media (max-width: 720px) {
+  .reviews { grid-template-columns: 1fr; }
+  .reviews__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  .reviews__arrow--prev { left: -0.4rem; }
+  .reviews__arrow--next { right: -0.4rem; }
+  .review__text { font-size: 1.15rem; }
+  .reviews__stage { min-height: 360px; padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review { transition: opacity 0ms; }
+}
+
+/* ============================================================
    Story (split layout)
    ============================================================ */
 .section--split {
