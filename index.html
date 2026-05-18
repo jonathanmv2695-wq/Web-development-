@@ -14,10 +14,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Earthy background scene: photographic foliage, color orbs, grain -->
+  <!-- Earthy background scene: layered photographic cannabis plants -->
   <div class="scene" aria-hidden="true">
     <div class="scene__photo scene__photo--top"></div>
     <div class="scene__photo scene__photo--mid"></div>
+    <div class="scene__photo scene__photo--accent"></div>
     <div class="scene__photo scene__photo--bot"></div>
     <div class="scene__veil"></div>
     <div class="scene__horizon"></div>
@@ -26,29 +27,7 @@
     <span class="orb orb--terracotta"></span>
     <span class="orb orb--gold"></span>
     <span class="orb orb--moss"></span>
-    <!-- Decorative SVG leaves drifting in the background -->
-    <svg class="leaf leaf--a" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
-    <svg class="leaf leaf--b" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
-    <svg class="leaf leaf--c" viewBox="0 0 100 140" aria-hidden="true"><use href="#cannabisLeaf"/></svg>
   </div>
-
-  <!-- Reusable cannabis leaf symbol -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <symbol id="cannabisLeaf" viewBox="0 0 100 140">
-        <g fill="currentColor" stroke="rgba(15,25,12,0.4)" stroke-width="0.6">
-          <path d="M50 6 C53 30 54 50 51 70 C50 78 48 78 47 70 C44 50 45 30 50 6 Z"/>
-          <path d="M52 22 C70 8 84 4 96 6 C90 24 76 38 56 44 Z"/>
-          <path d="M48 22 C30 8 16 4 4 6 C10 24 24 38 44 44 Z"/>
-          <path d="M54 50 C74 44 90 46 98 54 C88 64 70 68 56 64 Z"/>
-          <path d="M46 50 C26 44 10 46 2 54 C12 64 30 68 44 64 Z"/>
-          <path d="M54 70 C68 80 78 92 80 106 C66 102 54 92 50 78 Z"/>
-          <path d="M46 70 C32 80 22 92 20 106 C34 102 46 92 50 78 Z"/>
-          <path d="M49 80 L48 134 L52 134 L51 80 Z" fill="rgba(58,106,38,0.9)"/>
-        </g>
-      </symbol>
-    </defs>
-  </svg>
 
   <!-- Age gate -->
   <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">

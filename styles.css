@@ -34,11 +34,11 @@
   --text-dim:     rgba(243, 237, 223, 0.78);
   --text-faint:   rgba(243, 237, 223, 0.52);
 
-  /* Glass */
-  --glass-bg:        rgba(255, 248, 232, 0.09);
-  --glass-bg-soft:   rgba(255, 248, 232, 0.06);
-  --glass-bg-strong: rgba(255, 248, 232, 0.16);
-  --glass-bg-dark:   rgba(20, 26, 18, 0.6);
+  /* Glass — slightly more opaque so panels read over busy plant photos */
+  --glass-bg:        rgba(30, 38, 26, 0.42);
+  --glass-bg-soft:   rgba(30, 38, 26, 0.32);
+  --glass-bg-strong: rgba(30, 38, 26, 0.55);
+  --glass-bg-dark:   rgba(18, 22, 16, 0.7);
   --glass-border:    rgba(255, 245, 220, 0.24);
   --glass-border-dim:rgba(255, 245, 220, 0.12);
   --glass-shadow:    0 18px 50px rgba(0, 0, 0, 0.38),
@@ -78,12 +78,12 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 /* ============================================================
    Background scene
-   - Three photographic layers (cannabis flower + leaves +
-     Pacific NW foliage) at low opacity blend together for an
-     earthy backdrop. CSS gradients underneath ensure it still
-     looks great if images don't load.
+   - Four layered photographic cannabis plants (flower macro,
+     full growing plant, accent bud, big leaf) blend over an
+     earthy gradient. CSS gradients underneath ensure it still
+     looks great if images fail.
    - Color orbs add chromatic variation for glass to refract.
-   - Drifting SVG leaves add subtle motion.
+   - A soft veil keeps text readable over busy photo regions.
    ============================================================ */
 .scene {
   position: fixed;
@@ -97,49 +97,65 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .scene__photo {
   position: absolute;
-  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.28;
-  mix-blend-mode: soft-light;
-  filter: saturate(1.15) contrast(1.05);
+  filter: saturate(1.2) contrast(1.05);
   pointer-events: none;
 }
+/* TOP — macro cannabis flower covering the hero region */
 .scene__photo--top {
-  /* macro cannabis flower */
-  background-image: url("https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=1800&q=70");
-  height: 70vh;
-  top: -5vh;
-  opacity: 0.22;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
+  inset: 0;
+  height: 90vh;
+  top: -4vh;
+  background-image: url("https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=2000&q=75");
+  opacity: 0.5;
+  mix-blend-mode: normal;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 55%, transparent 100%);
 }
+/* MID — full growing cannabis plant */
 .scene__photo--mid {
-  /* Pacific NW forest / fern undergrowth */
-  background-image: url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1800&q=70");
-  height: 80vh;
-  top: 30vh;
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, transparent 75%);
+  inset: 0;
+  height: 100vh;
+  top: 38vh;
+  background-image: url("https://images.unsplash.com/photo-1605118569443-30b8a7b3a1be?auto=format&fit=crop&w=2000&q=75");
+  opacity: 0.4;
+  mix-blend-mode: normal;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 80%);
 }
+/* ACCENT — bud cluster floating off to one side, mid-page */
+.scene__photo--accent {
+  width: 60vw;
+  height: 60vh;
+  top: 90vh;
+  right: -10vw;
+  background-image: url("https://images.unsplash.com/photo-1567861911437-538298e4232c?auto=format&fit=crop&w=1600&q=75");
+  opacity: 0.45;
+  mix-blend-mode: normal;
+  border-radius: 50%;
+  mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 0%, transparent 70%);
+}
+/* BOT — big cannabis leaf at the page foot */
 .scene__photo--bot {
-  /* macro cannabis leaf */
-  background-image: url("https://images.unsplash.com/photo-1536819114556-1e10f967fb61?auto=format&fit=crop&w=1800&q=70");
-  height: 70vh;
-  bottom: -5vh;
-  opacity: 0.22;
-  mask-image: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%);
-  -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%);
+  inset: 0;
+  height: 90vh;
+  bottom: -4vh;
+  top: auto;
+  background-image: url("https://images.unsplash.com/photo-1536819114556-1e10f967fb61?auto=format&fit=crop&w=2000&q=75");
+  opacity: 0.5;
+  mix-blend-mode: normal;
+  mask-image: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 55%, transparent 100%);
 }
 .scene__veil {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(26, 22, 17, 0.15) 0%, rgba(26, 22, 17, 0.55) 80%),
-    linear-gradient(180deg, rgba(28, 36, 24, 0.35) 0%, rgba(26, 22, 17, 0.6) 100%);
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(20, 18, 14, 0.18) 0%, rgba(20, 18, 14, 0.45) 80%),
+    linear-gradient(180deg, rgba(26, 32, 22, 0.42) 0%, rgba(20, 18, 14, 0.55) 100%);
   pointer-events: none;
 }
 .scene__horizon {
@@ -189,27 +205,8 @@ ul { list-style: none; padding: 0; margin: 0; }
   100% { transform: translate3d(-30px, 40px, 0) scale(0.98); }
 }
 
-/* Drifting SVG leaves */
-.leaf {
-  position: absolute;
-  color: rgba(123, 182, 97, 0.18);
-  filter: blur(0.6px) drop-shadow(0 8px 18px rgba(0,0,0,0.4));
-  pointer-events: none;
-  animation: leafFloat 24s ease-in-out infinite alternate;
-  will-change: transform;
-}
-.leaf--a { width: 220px; height: 308px; top: 12vh;   left: -3vw;  --r: -18deg; }
-.leaf--b { width: 160px; height: 224px; top: 55vh;   right: -2vw; --r: 28deg;
-           color: rgba(155, 179, 138, 0.16); animation-duration: 30s; animation-delay: -8s; }
-.leaf--c { width: 260px; height: 364px; bottom: -6vh; left: 38vw; --r: 8deg;
-           color: rgba(74, 124, 46, 0.14); animation-duration: 34s; animation-delay: -14s; }
-@keyframes leafFloat {
-  from { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
-  to   { transform: translate3d(20px, -28px, 0) rotate(calc(var(--r, 0deg) + 6deg)); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .orb, .leaf { animation: none; }
+  .orb { animation: none; }
 }
 
 /* ============================================================
@@ -1059,7 +1056,6 @@ em {
   .footer__cols { grid-template-columns: 1fr 1fr; }
   .age-gate__panel { padding: 1.75rem 1.25rem; }
   .age-gate__title { font-size: 1.6rem; }
-  .leaf--c { display: none; }
 }
 
 @media (max-width: 460px) {
