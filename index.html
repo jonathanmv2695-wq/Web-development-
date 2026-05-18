@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1f2a1a" />
   <meta name="description" content="HWY 99 Cannabis Co. — craft dispensary on Highway 99 in Eugene, Oregon. Top-shelf flower, pre-rolls, edibles, concentrates and gear. Daily deals all week." />
   <title>HWY 99 Cannabis Co. — Craft Dispensary · Eugene, Oregon</title>
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="icon" type="image/png" href="assets/hwy99-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
@@ -14,65 +14,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- HWY 99 logo symbol — defined once, <use>'d everywhere.
-       A real cannabis-leaf photograph fills a single united leaf
-       silhouette behind the HWY / 99 / CANNABIS text overlay,
-       matching the in-store sign as closely as possible. -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <clipPath id="hwy99LeafShape" clipPathUnits="userSpaceOnUse">
-        <!-- Central hub + 7 overlapping leaflets => one continuous leaf -->
-        <g transform="translate(120 138)">
-          <ellipse cx="0" cy="0" rx="44" ry="52"/>
-          <path d="M 0 -112 C 9 -70 13 -28 7 14 C 4 26 -4 26 -7 14 C -13 -28 -9 -70 0 -112 Z"/>
-          <path d="M 5 -10 C 38 -40 62 -56 82 -58 C 70 -30 48 -8 16 14 Z" transform="rotate(22)"/>
-          <path d="M -5 -10 C -38 -40 -62 -56 -82 -58 C -70 -30 -48 -8 -16 14 Z" transform="rotate(-22)"/>
-          <path d="M 6 -2 C 44 -12 74 -8 96 6 C 74 24 44 28 14 18 Z"/>
-          <path d="M -6 -2 C -44 -12 -74 -8 -96 6 C -74 24 -44 28 -14 18 Z"/>
-          <path d="M 8 10 C 34 22 60 42 68 66 C 44 62 22 48 12 26 Z"/>
-          <path d="M -8 10 C -34 22 -60 42 -68 66 C -44 62 -22 48 -12 26 Z"/>
-          <!-- Stem area joined to leaf so photo continues into stem -->
-          <rect x="-5" y="14" width="10" height="92" rx="2"/>
-        </g>
-      </clipPath>
-      <linearGradient id="hwy99ShieldGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="100%" stop-color="#f3ecd9"/>
-      </linearGradient>
-    </defs>
-    <symbol id="hwy99Logo" viewBox="0 0 240 260">
-      <!-- Highway shield -->
-      <path d="M 120 12 L 36 32 L 36 142 Q 36 200 120 248 Q 204 200 204 142 L 204 32 Z"
-            fill="url(#hwy99ShieldGrad)" stroke="#0d0d0d" stroke-width="7" stroke-linejoin="round"/>
-      <!-- Cannabis leaf photograph clipped to the united leaf silhouette -->
-      <g clip-path="url(#hwy99LeafShape)">
-        <!-- Fallback green so the leaf shape is always visible -->
-        <rect x="0" y="0" width="240" height="260" fill="#3a6a26"/>
-        <image
-          href="https://images.unsplash.com/photo-1536819114556-1e10f967fb61?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
-          xlink:href="https://images.unsplash.com/photo-1536819114556-1e10f967fb61?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
-          x="10" y="22" width="220" height="232"
-          preserveAspectRatio="xMidYMid slice"/>
-        <!-- Subtle dark-green inner shadow on the leaf to deepen edges -->
-        <rect x="0" y="0" width="240" height="260" fill="#1f3d18" opacity="0.18"/>
-      </g>
-      <!-- HWY -->
-      <text x="120" y="68" text-anchor="middle"
-            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
-            font-size="40" font-weight="900" fill="#0d0d0d" letter-spacing="2">HWY</text>
-      <!-- Divider -->
-      <rect x="46" y="80" width="148" height="6" fill="#0d0d0d"/>
-      <!-- 99 sits on top of the leaf, plain black like the original -->
-      <text x="120" y="162" text-anchor="middle"
-            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
-            font-size="86" font-weight="900" fill="#0d0d0d">99</text>
-      <!-- CANNABIS -->
-      <text x="120" y="220" text-anchor="middle"
-            font-family="'Arial Black','Helvetica Neue',Impact,sans-serif"
-            font-size="26" font-weight="900" fill="#0d0d0d" letter-spacing="3">CANNABIS</text>
-    </symbol>
-  </svg>
-
   <!-- Earthy background scene: layered photographic cannabis plants -->
   <div class="scene" aria-hidden="true">
     <div class="scene__photo scene__photo--top"></div>
@@ -91,7 +32,7 @@
   <!-- Age gate -->
   <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
     <div class="age-gate__panel glass">
-      <svg class="age-gate__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
+      <img src="assets/hwy99-logo.png" alt="" class="age-gate__logo" />
       <h2 id="ageTitle" class="age-gate__title">Are you 21 or older?</h2>
       <p class="age-gate__copy">You must be of legal age to enter HWY 99 Cannabis Co. By entering you confirm you meet the legal age requirement in your jurisdiction.</p>
       <div class="age-gate__actions">
@@ -105,7 +46,7 @@
   <!-- Sticky glass navigation -->
   <header class="nav glass">
     <a class="nav__brand" href="#top" aria-label="HWY 99 Cannabis Co. — home">
-      <svg class="nav__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
+      <img src="assets/hwy99-logo.png" alt="" class="nav__logo" />
       <span class="nav__wordmark">
         <span class="nav__wordmark-top">HWY 99</span>
         <span class="nav__wordmark-bot">Cannabis Co. · Eugene</span>
@@ -147,7 +88,7 @@
         </div>
         <div class="hero__sign">
           <div class="hero__sign-glass glass">
-            <svg class="hero__sign-logo" viewBox="0 0 240 260" role="img" aria-label="HWY 99 Cannabis Co. logo" focusable="false"><use href="#hwy99Logo"/></svg>
+            <img src="assets/hwy99-logo.png" alt="HWY 99 Cannabis Co. logo" class="hero__sign-logo" />
           </div>
           <div class="hero__post" aria-hidden="true"></div>
         </div>
@@ -427,7 +368,7 @@
   <footer class="footer glass glass--dark">
     <div class="footer__row">
       <div class="footer__brand">
-        <svg class="footer__logo" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><use href="#hwy99Logo"/></svg>
+        <img src="assets/hwy99-logo.png" alt="" class="footer__logo"/>
         <p>HWY 99 Cannabis Co.<br/><span>1083 State Hwy 99 N B · Eugene, OR</span></p>
       </div>
       <div class="footer__cols">
