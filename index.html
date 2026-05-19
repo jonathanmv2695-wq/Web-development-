@@ -413,17 +413,14 @@
         <div class="visit__card glass">
           <h3>Hours</h3>
           <ul class="visit__hours">
-            <li><span>Mon — Thu</span><span>9:00a — 9:00p</span></li>
-            <li><span>Fri — Sat</span><span>9:00a — 10:00p</span></li>
-            <li><span>Sunday</span><span>10:00a — 8:00p</span></li>
+            <li><span>Open</span><span>7 days a week</span></li>
           </ul>
-          <p class="visit__note">Hours may vary on holidays — call ahead to confirm.</p>
+          <p class="visit__note">Call ahead or check our Google listing to confirm today's hours.</p>
         </div>
 
         <div class="visit__card glass visit__card--wide">
           <h3>Find us</h3>
           <p class="visit__addr">1083 State Hwy 99 N, Suite B<br/>Eugene, OR 97402</p>
-          <p class="visit__phone">(541) 555&#8209;0199</p>
           <div class="visit__map">
             <iframe
               title="Map to HWY 99 Cannabis Co. — 1083 State Hwy 99 N B, Eugene, OR 97402"
@@ -470,6 +467,29 @@
       <p>&copy; <span id="year">2026</span> HWY 99 Cannabis Co. · 1083 State Hwy 99 N B, Eugene, OR 97402. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Pre-launch checklist (hidden by default; shows only when URL ends with ?draft=1).
+       Delete this entire <aside> block before pointing the real domain at this site. -->
+  <aside class="draft-checklist" id="draftChecklist" hidden aria-label="Pre-launch checklist (draft only)">
+    <button class="draft-checklist__close" type="button" id="draftClose" aria-label="Hide checklist">×</button>
+    <div class="draft-checklist__head">
+      <span class="draft-checklist__badge">Draft</span>
+      <h4>Before launch</h4>
+      <p>Items still pending from Vicky. Hidden from prospect URL — visible only on <code>?draft=1</code>.</p>
+    </div>
+    <ul class="draft-checklist__list">
+      <li><strong>Phone number</strong> — real shop line (placeholder removed)</li>
+      <li><strong>Confirmed hours</strong> — currently shows &ldquo;Open 7 days&rdquo; only</li>
+      <li><strong>OLCC license #</strong> — for footer legal copy</li>
+      <li><strong>Dutchie menu URL</strong> — wire into Shop &amp; category links</li>
+      <li><strong>Contact-form email</strong> — destination for inquiries</li>
+      <li><strong>Domain</strong> — point at GitHub Pages / hosting</li>
+      <li><em>Nice-to-have</em> — storefront/interior/product photos</li>
+      <li><em>Nice-to-have</em> — social handles (IG / FB)</li>
+      <li><em>Nice-to-have</em> — real origin story / about copy</li>
+    </ul>
+    <p class="draft-checklist__foot">Delete the <code>&lt;aside class="draft-checklist"&gt;</code> block from <code>index.html</code> before launch.</p>
+  </aside>
 
   <script src="script.js" defer></script>
 </body>

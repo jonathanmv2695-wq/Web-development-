@@ -167,4 +167,16 @@
   /* ---------- Year ---------- */
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- Draft-mode pre-launch checklist (?draft=1) ---------- */
+  const checklist = document.getElementById('draftChecklist');
+  if (checklist) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('draft')) {
+      checklist.hidden = false;
+      document.getElementById('draftClose')?.addEventListener('click', () => {
+        checklist.hidden = true;
+      });
+    }
+  }
 })();
