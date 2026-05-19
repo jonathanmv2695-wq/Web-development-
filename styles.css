@@ -1014,9 +1014,11 @@ em {
    ============================================================ */
 .visit {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-columns: 1fr 1.8fr;
   gap: var(--gap);
   align-items: stretch;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .visit__card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.85rem; }
 .visit__card h3 { color: var(--cream); margin: 0 0 0.5rem; }
